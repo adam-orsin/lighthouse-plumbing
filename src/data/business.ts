@@ -31,7 +31,7 @@ export const business = {
   ],
   social: {
     facebook: 'https://facebook.com/lighthouseplumbing',
-    google: 'https://g.page/lighthouseplumbing',
+    google: 'https://g.page/r/CbY5U9yy0yTIEAE',
   },
   established: 2004,
   license: 'LIGHTP*832PL',
