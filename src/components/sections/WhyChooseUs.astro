@@ -1,0 +1,79 @@
+---
+import SectionHeading from '../ui/SectionHeading.astro';
+
+const communityImage = '/images/community.webp';
+
+const reasons = [
+  {
+    icon: 'award',
+    title: 'Expert Craftsmanship',
+    description: 'Our licensed plumbers bring decades of combined experience to every job, big or small.',
+  },
+  {
+    icon: 'clock',
+    title: 'Prompt & Reliable',
+    description: "We show up on time, every time. Your schedule matters to us as much as it does to you.",
+  },
+  {
+    icon: 'dollar',
+    title: 'Transparent Pricing',
+    description: "No hidden fees or surprises. We provide upfront quotes so you know exactly what to expect.",
+  },
+  {
+    icon: 'shield',
+    title: 'Guaranteed Work',
+    description: 'We stand behind our work with comprehensive warranties on all services and parts.',
+  },
+];
+
+const iconPaths: Record<string, string> = {
+  award: 'M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z',
+  clock: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
+  dollar: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
+  shield: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
+};
+---
+
+<section class="section-padding bg-navy-50">
+  <div class="container-custom">
+    <div class="grid lg:grid-cols-2 gap-12 items-center mb-12">
+      <div>
+        <SectionHeading
+          title="Why Choose Lighthouse Plumbing?"
+          subtitle="We're not just plumbers—we're your neighbors committed to excellence."
+          alignment="left"
+        />
+        <p class="text-gray-600 mt-4">
+          When you call Lighthouse Plumbing, you're getting more than just a service—you're getting a neighbor who cares about your home as much as you do. We've built our reputation on honest work, fair pricing, and treating every customer like family.
+        </p>
+      </div>
+      <div class="rounded-2xl overflow-hidden shadow-xl">
+        <img
+          src={communityImage}
+          alt="Lighthouse Plumbing team member with satisfied customer"
+          class="w-full h-full object-cover"
+        />
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {reasons.map((reason, index) => (
+        <div class="text-center fade-in" style={`animation-delay: ${index * 100}ms`}>
+          <div class="w-16 h-16 bg-accent rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={iconPaths[reason.icon]} />
+            </svg>
+          </div>
+
+          <h3 class="text-xl font-bold text-navy-800 mb-2">
+            {reason.title}
+          </h3>
+
+          <p class="text-gray-600">
+            {reason.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

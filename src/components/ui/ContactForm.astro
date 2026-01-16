@@ -1,0 +1,115 @@
+---
+import { services } from '../../data/services';
+import Button from './Button.astro';
+
+interface Props {
+  compact?: boolean;
+  formspreeId?: string;
+}
+
+const {
+  compact = false,
+  formspreeId = 'xwpkgjvd', // Replace with actual Formspree form ID
+} = Astro.props;
+---
+
+<form
+  action={`https://formspree.io/f/${formspreeId}`}
+  method="POST"
+  class="space-y-4"
+>
+  <div class={compact ? 'space-y-4' : 'grid md:grid-cols-2 gap-4'}>
+    <div>
+      <label for="name" class="block text-sm font-medium text-gray-700 mb-1">
+        Full Name <span class="text-red-500">*</span>
+      </label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-colors"
+        placeholder="John Smith"
+      />
+    </div>
+
+    <div>
+      <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">
+        Phone Number <span class="text-red-500">*</span>
+      </label>
+      <input
+        type="tel"
+        id="phone"
+        name="phone"
+        required
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-colors"
+        placeholder="(425) 555-0123"
+      />
+    </div>
+  </div>
+
+  <div>
+    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">
+      Email Address <span class="text-red-500">*</span>
+    </label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      required
+      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-colors"
+      placeholder="john@example.com"
+    />
+  </div>
+
+  <div>
+    <label for="service" class="block text-sm font-medium text-gray-700 mb-1">
+      Service Needed
+    </label>
+    <select
+      id="service"
+      name="service"
+      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-colors bg-white"
+    >
+      <option value="">Select a service...</option>
+      {services.map(service => (
+        <option value={service.id}>{service.name}</option>
+      ))}
+      <option value="other">Other / Not Sure</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="message" class="block text-sm font-medium text-gray-700 mb-1">
+      Message
+    </label>
+    <textarea
+      id="message"
+      name="message"
+      rows={compact ? 3 : 4}
+      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-colors resize-none"
+      placeholder="Tell us about your plumbing issue or project..."
+    ></textarea>
+  </div>
+
+  <div>
+    <Button type="submit" variant="primary" size="lg" fullWidth>
+      <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+      </svg>
+      Send Request
+    </Button>
+  </div>
+
+  <p class="text-xs text-gray-500 text-center">
+    We'll respond within 24 hours. For emergencies, call us directly.
+  </p>
+</form>
+
+<style>
+  form:has(input:focus),
+  form:has(textarea:focus),
+  form:has(select:focus) {
+    /* Form has focus state */
+  }
+</style>

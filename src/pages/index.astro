@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/sections/Hero.astro';
+import Services from '../components/sections/Services.astro';
+import WhyChooseUs from '../components/sections/WhyChooseUs.astro';
+import Testimonials from '../components/sections/Testimonials.astro';
+import ServiceArea from '../components/sections/ServiceArea.astro';
+import CTABanner from '../components/sections/CTABanner.astro';
+import ContactForm from '../components/ui/ContactForm.astro';
+import SectionHeading from '../components/ui/SectionHeading.astro';
+---
+
+<BaseLayout
+  title="Professional Plumbing Services"
+  description="Lighthouse Plumbing provides expert plumbing services in Fall City, WA and the Snoqualmie Valley. Water heaters, drain cleaning, horizontal boring, and 24/7 emergency service."
+>
+  <Hero />
+
+  <Services />
+
+  <WhyChooseUs />
+
+  <CTABanner
+    title="Plumbing Emergency?"
+    subtitle="Don't wait! Our emergency team is available 24/7 to handle urgent plumbing issues."
+  />
+
+  <Testimonials />
+
+  <ServiceArea />
+
+  <!-- Lead Capture Form Section -->
+  <section class="section-padding bg-gray-50">
+    <div class="container-custom">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <SectionHeading
+            title="Request Service Today"
+            subtitle="Fill out the form and we'll get back to you within 24 hours with a free estimate."
+            alignment="left"
+          />
+
+          <div class="space-y-6 text-gray-600">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-navy-800">Free Estimates</h4>
+                <p>No obligation quotes for all services</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-navy-800">Quick Response</h4>
+                <p>We respond to all inquiries within 24 hours</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-navy-800">Flexible Scheduling</h4>
+                <p>Appointments that fit your schedule</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-xl p-8">
+          <ContactForm />
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

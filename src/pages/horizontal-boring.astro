@@ -1,0 +1,254 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import SectionHeading from '../components/ui/SectionHeading.astro';
+import { business } from '../data/business';
+
+const benefits = [
+  {
+    title: 'Minimal Disruption',
+    description: 'No trenches means your lawn, landscaping, driveways, and patios stay intact.',
+    icon: 'leaf',
+  },
+  {
+    title: 'Faster Completion',
+    description: 'Projects are typically completed in a fraction of the time compared to traditional methods.',
+    icon: 'clock',
+  },
+  {
+    title: 'Cost-Effective',
+    description: 'Less labor, restoration, and cleanup means lower overall project costs.',
+    icon: 'dollar',
+  },
+  {
+    title: 'Precision Accuracy',
+    description: 'Advanced equipment allows precise boring paths under obstacles.',
+    icon: 'target',
+  },
+];
+
+const useCases = [
+  {
+    title: 'Water Line Installation',
+    description: 'Install new water supply lines to homes, outbuildings, or irrigation systems without tearing up your property.',
+  },
+  {
+    title: 'Sewer & Drain Lines',
+    description: 'Replace or install sewer lines under driveways, sidewalks, or established landscaping.',
+  },
+  {
+    title: 'Utility Connections',
+    description: 'Run gas, electrical conduit, or communication lines underground with minimal surface disturbance.',
+  },
+  {
+    title: 'Pool & Spa Lines',
+    description: 'Install plumbing for new pools, hot tubs, or outdoor kitchens across your property.',
+  },
+];
+
+const iconPaths: Record<string, string> = {
+  leaf: 'M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z',
+  clock: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
+  dollar: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
+  target: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
+};
+---
+
+<ServiceLayout
+  title="Horizontal Boring Services"
+  description="Trenchless horizontal boring in Fall City, WA. Install underground pipes without destroying your lawn or landscaping. Fast, precise, and cost-effective."
+  heroTitle="Horizontal Boring & Trenchless Technology"
+  heroSubtitle="Underground pipe installation without the mess. Keep your landscaping beautiful while we work beneath it."
+  heroImage="/images/van-2.webp"
+  currentServiceId="horizontal-boring"
+>
+  <!-- What is Horizontal Boring -->
+  <section class="section-padding bg-white">
+    <div class="container-custom">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold text-navy-800 mb-6">
+            What is Horizontal Boring?
+          </h2>
+          <p class="text-gray-600 mb-6">
+            Horizontal boring, also known as directional boring or trenchless technology, is a method of installing underground pipes and conduits without digging trenches. Using specialized equipment, we bore a path underground and pull pipes through, leaving your property virtually untouched.
+          </p>
+          <p class="text-gray-600 mb-6">
+            This technique is perfect for running utilities under driveways, sidewalks, landscaping, or any area where traditional trenching would cause significant damage and disruption.
+          </p>
+
+          <div class="bg-accent/10 rounded-xl p-6">
+            <h3 class="font-bold text-navy-800 mb-2">Perfect For:</h3>
+            <ul class="grid grid-cols-2 gap-2 text-gray-700">
+              {['Residential properties', 'Established landscaping', 'Under driveways', 'Across sidewalks', 'Around tree roots', 'Near foundations'].map(item => (
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-sm">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div class="rounded-2xl overflow-hidden shadow-xl">
+          <img
+            src="/images/van-2.webp"
+            alt="Lighthouse Plumbing service vehicle"
+            class="w-full h-full object-cover object-center"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Grid -->
+  <section class="section-padding bg-gray-50">
+    <div class="container-custom">
+      <SectionHeading
+        title="Benefits of Horizontal Boring"
+        subtitle="Why more homeowners are choosing trenchless technology for their plumbing projects."
+      />
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {benefits.map(benefit => (
+          <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow text-center">
+            <div class="w-16 h-16 bg-accent rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={iconPaths[benefit.icon]} />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-navy-800 mb-2">{benefit.title}</h3>
+            <p class="text-gray-600 text-sm">{benefit.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases -->
+  <section class="section-padding bg-white">
+    <div class="container-custom">
+      <SectionHeading
+        title="Common Applications"
+        subtitle="Horizontal boring is the smart choice for a variety of underground installations."
+      />
+
+      <div class="grid md:grid-cols-2 gap-8">
+        {useCases.map((useCase, index) => (
+          <div class="flex gap-6 items-start">
+            <div class="w-12 h-12 bg-navy-800 text-white rounded-xl flex items-center justify-center flex-shrink-0 font-bold text-xl">
+              {index + 1}
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-navy-800 mb-2">{useCase.title}</h3>
+              <p class="text-gray-600">{useCase.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison Section -->
+  <section class="section-padding bg-navy-50">
+    <div class="container-custom">
+      <SectionHeading
+        title="Traditional Trenching vs. Horizontal Boring"
+        subtitle="See why trenchless technology is the modern choice for underground installations."
+      />
+
+      <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <!-- Traditional Trenching -->
+        <div class="bg-white rounded-xl p-8 border-2 border-gray-200">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">
+              <svg class="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-navy-800">Traditional Trenching</h3>
+          </div>
+
+          <ul class="space-y-3">
+            {[
+              'Destroys lawn and landscaping',
+              'Requires extensive restoration',
+              'Multiple days of work',
+              'Higher total project cost',
+              'Disrupts property use',
+              'Weather dependent',
+            ].map(item => (
+              <li class="flex items-start gap-3 text-gray-600">
+                <svg class="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
+                </svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Horizontal Boring -->
+        <div class="bg-white rounded-xl p-8 border-2 border-accent shadow-lg">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+              <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-navy-800">Horizontal Boring</h3>
+          </div>
+
+          <ul class="space-y-3">
+            {[
+              'Preserves lawn and landscaping',
+              'Minimal to no restoration needed',
+              'Often completed in one day',
+              'Lower total project cost',
+              'Minimal property disruption',
+              'Works in most conditions',
+            ].map(item => (
+              <li class="flex items-start gap-3 text-gray-700">
+                <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Process -->
+  <section class="section-padding bg-white">
+    <div class="container-custom">
+      <SectionHeading
+        title="Our Horizontal Boring Process"
+        subtitle="A straightforward approach that delivers results with minimal impact to your property."
+      />
+
+      <div class="max-w-3xl mx-auto">
+        {[
+          { step: '1', title: 'Site Assessment', desc: 'We evaluate your property, locate existing utilities, and plan the optimal boring path.' },
+          { step: '2', title: 'Preparation', desc: 'Small entry and exit pits are dug at each end of the bore path—typically just a few feet wide.' },
+          { step: '3', title: 'Pilot Bore', desc: 'Our boring equipment creates a precise underground path from entry to exit point.' },
+          { step: '4', title: 'Pipe Installation', desc: 'The new pipe or conduit is attached and pulled through the bored tunnel.' },
+          { step: '5', title: 'Completion', desc: 'Entry and exit points are backfilled and restored, leaving your property looking great.' },
+        ].map((item, index) => (
+          <div class="flex gap-6 items-start mb-8 last:mb-0">
+            <div class="w-14 h-14 bg-accent text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold text-xl">
+              {item.step}
+            </div>
+            <div class="pt-2">
+              <h3 class="text-xl font-bold text-navy-800 mb-2">{item.title}</h3>
+              <p class="text-gray-600">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</ServiceLayout>

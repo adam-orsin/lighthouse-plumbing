@@ -1,0 +1,181 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ui/ContactForm.astro';
+import { business } from '../data/business';
+---
+
+<BaseLayout
+  title="Contact Us"
+  description="Contact Lighthouse Plumbing for all your plumbing needs in Fall City, WA. Call for emergencies or schedule service online. Free estimates available."
+>
+  <!-- Page Header -->
+  <section class="bg-navy-800 py-16 md:py-20">
+    <div class="container-custom">
+      <div class="max-w-2xl">
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+          Contact Us
+        </h1>
+        <p class="text-xl text-navy-100">
+          Have a question or need plumbing service? We're here to help. Reach out and we'll get back to you promptly.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Content -->
+  <section class="section-padding bg-white">
+    <div class="container-custom">
+      <div class="grid lg:grid-cols-3 gap-12">
+        <!-- Contact Form -->
+        <div class="lg:col-span-2">
+          <div class="bg-gray-50 rounded-2xl p-8">
+            <h2 class="text-2xl font-bold text-navy-800 mb-6">
+              Send Us a Message
+            </h2>
+            <p class="text-gray-600 mb-8">
+              Fill out the form below and we'll respond within 24 hours. For emergencies, please call us directly.
+            </p>
+            <ContactForm />
+          </div>
+        </div>
+
+        <!-- Contact Info Sidebar -->
+        <div class="space-y-6">
+          <!-- Phone Card -->
+          <div class="bg-accent rounded-2xl p-6 text-white">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-bold text-lg">Call Us</h3>
+                <p class="text-white/80 text-sm">24/7 Emergency Available</p>
+              </div>
+            </div>
+            <a
+              href={`tel:${business.phoneClean}`}
+              class="block text-2xl font-bold hover:underline"
+            >
+              {business.phone}
+            </a>
+          </div>
+
+          <!-- Address Card -->
+          <div class="bg-gray-50 rounded-2xl p-6">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center">
+                <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <h3 class="font-bold text-lg text-navy-800">Our Location</h3>
+            </div>
+            <p class="text-gray-600 mb-4">
+              {business.address.street}<br />
+              {business.address.city}, {business.address.state} {business.address.zip}
+            </p>
+            <a
+              href={`https://maps.google.com/?q=${encodeURIComponent(business.address.full)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-accent font-semibold hover:text-accent-hover transition-colors inline-flex items-center gap-1"
+            >
+              Get Directions
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          </div>
+
+          <!-- Hours Card -->
+          <div class="bg-gray-50 rounded-2xl p-6">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center">
+                <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 class="font-bold text-lg text-navy-800">Business Hours</h3>
+            </div>
+            <ul class="space-y-2 text-gray-600">
+              <li class="flex justify-between">
+                <span>Monday - Friday</span>
+                <span class="font-medium text-navy-800">{business.hours.weekdays}</span>
+              </li>
+              <li class="flex justify-between">
+                <span>Saturday</span>
+                <span class="font-medium text-navy-800">{business.hours.saturday}</span>
+              </li>
+              <li class="flex justify-between">
+                <span>Sunday</span>
+                <span class="font-medium text-navy-800">{business.hours.sunday}</span>
+              </li>
+            </ul>
+            <div class="mt-4 pt-4 border-t border-gray-200">
+              <p class="text-accent font-semibold text-sm">
+                {business.hours.emergency}
+              </p>
+            </div>
+          </div>
+
+          <!-- Email Card -->
+          <div class="bg-gray-50 rounded-2xl p-6">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center">
+                <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <h3 class="font-bold text-lg text-navy-800">Email Us</h3>
+            </div>
+            <a
+              href={`mailto:${business.email}`}
+              class="text-accent font-semibold hover:text-accent-hover transition-colors"
+            >
+              {business.email}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Google Map -->
+  <section class="h-96 md:h-[500px]">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10858.476891998664!2d-121.8947!3d47.5673!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54907da6eb6fc99f%3A0xba3a7c6c8e1c4f63!2sFall%20City%2C%20WA!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+      width="100%"
+      height="100%"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Lighthouse Plumbing Location"
+    ></iframe>
+  </section>
+
+  <!-- Service Areas -->
+  <section class="section-padding bg-gray-50">
+    <div class="container-custom">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold text-navy-800 mb-4">
+          Service Areas
+        </h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">
+          We proudly serve the following communities. Don't see your area? Give us a call—we may still be able to help!
+        </p>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
+        {business.serviceAreas.map(city => (
+          <span class="px-6 py-3 bg-white rounded-full shadow-sm text-navy-700 font-medium">
+            {city}
+          </span>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
