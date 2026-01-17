@@ -13,9 +13,11 @@ interface Props {
   heroSubtitle: string;
   heroImage?: string;
   currentServiceId: string;
+  showReviewsBadge?: boolean;
+  reviewsCount?: string;
 }
 
-const { title, description, heroTitle, heroSubtitle, heroImage, currentServiceId } = Astro.props;
+const { title, description, heroTitle, heroSubtitle, heroImage, currentServiceId, showReviewsBadge, reviewsCount } = Astro.props;
 
 const relatedServices = services
   .filter(s => s.id !== currentServiceId && s.slug)
@@ -27,6 +29,8 @@ const relatedServices = services
     title={heroTitle}
     subtitle={heroSubtitle}
     backgroundImage={heroImage}
+    showReviewsBadge={showReviewsBadge}
+    reviewsCount={reviewsCount}
   />
 
   <slot />
