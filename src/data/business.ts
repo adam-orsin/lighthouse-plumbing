@@ -1,8 +1,8 @@
 export const business = {
   name: 'Lighthouse Plumbing',
   tagline: 'Your Beacon of Reliable Plumbing',
-  phone: '(425) 555-0147',
-  phoneClean: '4255550147',
+  phone: '(425) 946-2407',
+  phoneClean: '4259462407',
   email: 'info@lighthouseplumbing.com',
   address: {
     street: '4521 Preston-Fall City Rd SE',
